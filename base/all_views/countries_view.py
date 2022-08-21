@@ -18,7 +18,7 @@ def countries(request,id=-1):
             CountriesObj= Countries.objects.all()
             print(CountriesObj)
             #return JsonResponse({"GET":CountriesObj})
-            return JsonResponse({"ALL-Countries":CountriesSerializer().get_Countries(CountriesObj)},safe=False) #return array as json response
+            return JsonResponse({"countries":CountriesSerializer().get_Countries(CountriesObj)},safe=False) #return array as json response
     #country_name,image
     if request.method == 'POST': #method post add new row
         country_name =request.data['country_name']

@@ -25,7 +25,10 @@ class FlightsSerializer(serializers.ModelSerializer):
                     "country_name": i.origin_country_id.country_name
 
                 },
-                "destination_country_id":i.destination_country_id,
+                "destination_country_id":{
+                    "id":i.destination_country_id._id,
+                    "company_name": i.destination_country_id.country_name
+                    },
                 "departure_time":i.departure_time,
                 "landing_time":i.landing_time,
                 "createdTime":i.createdTime,

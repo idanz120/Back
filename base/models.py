@@ -65,16 +65,15 @@ class Airline_Companies(models.Model):
 class Flights(models.Model):
     user_id =models.ForeignKey(User,on_delete=models.SET_NULL,null=True) 
     airline_company_id =models.ForeignKey(Airline_Companies,on_delete=models.SET_NULL,null=True)
-    origin_country_id =models.ForeignKey(Countries,on_delete=models.SET_NULL,null=True)
-    destination_country_id = models.CharField(max_length=50,null=True,blank=True)       #models.ForeignKey(origin_country_id,on_delete=models.SET_NULL,null=True) #make erorr ask eyal
-    departure_time=models.TimeField()
-    landing_time=models.TimeField()
+    origin_country_id =models.ForeignKey(Countries,on_delete=models.SET_NULL,null=True,related_name= "+")
+    destination_country_id = models.ForeignKey(Countries,on_delete=models.SET_NULL,null=True , related_name="+") 
+    departure_time=models.DateTimeField()
+    landing_time=models.DateTimeField()
     remaining_tickets = models.IntegerField(null=True,blank=True)
     createdTime=models.DateTimeField(auto_now_add=True)
     _id=models.AutoField(primary_key=True,editable=False)
 
-    def __str__(self):
-     	return self.destination_country_id
+    
 
 # -----------------------------------------------------------------------------------------------------
 

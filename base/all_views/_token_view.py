@@ -35,6 +35,10 @@ def addUser(request):
                              password= request.data['password'])
     return JsonResponse({"done":'done'} )    
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def test_member(request):
+    return JsonResponse({"members":"only"})
     #User.objects.create_user(username= 'john',
     #                         email='john@.com',
     #                         password= '123321')

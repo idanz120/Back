@@ -32,9 +32,11 @@ urlpatterns = [
     path('airline_companies/', airline_comp_view.airline_companies),
     path('airline_companies/<id>', airline_comp_view.airline_companies),
     #Flights
+    path('flightsTEST/<id>', flights_view.showResults),
     path('flights_by_airline/<id>',flights_view.flights_by_air_companies),
     path('flights/', flights_view.flights),
     path('flights/<id>', flights_view.flights),
+    path('flight_by_param/<originId><destinationId><date>', flights_view.get_flight_by_parameters),
     #Ticket
     path('tickets/', tickets_view.tickets),
     path('tickets/<id>', tickets_view.tickets),
